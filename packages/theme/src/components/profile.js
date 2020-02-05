@@ -23,15 +23,18 @@ const ProfileInformation = styled.div`
 `;
 
 const Profile = ({
-  avatar, username, name, description, website, postsCount,
+  user, postsCount,
 }) => {
+  const {
+    website, avatar, username, name, description,
+  } = user;
   const shortWebsite = website && website.replace(/(^\w+:|^)\/\//, '');
   return (
     <StyledProfile>
       { avatar && (
         <ProfileAvatar>
           <Avatar>
-            <Img src={avatar} alt="" />
+            <Img src={`${avatar}?w=256&h=256&fit=face`} alt="" />
           </Avatar>
         </ProfileAvatar>
       )}
@@ -61,20 +64,17 @@ const Profile = ({
 };
 
 Profile.defaultProps = {
-  avatar: undefined,
-  username: undefined,
-  name: undefined,
-  website: undefined,
-  description: undefined,
   postsCount: 0,
 };
 
 Profile.propTypes = {
-  avatar: PropTypes.string,
-  username: PropTypes.string,
-  name: PropTypes.string,
-  website: PropTypes.string,
-  description: PropTypes.string,
+  user: PropTypes.shape({
+    avatar: PropTypes.string,
+    username: PropTypes.string,
+    name: PropTypes.string,
+    website: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
   postsCount: PropTypes.number,
 };
 

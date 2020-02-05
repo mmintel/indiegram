@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  Thumbnail, Detail, Dialog, Card,
+  Thumbnail,
 } from '@mmintel/indiegram';
 import styled from '@emotion/styled';
-import withSpacing from '../hocs/with-spacing';
 
 const StyledFeed = styled.div`
   display: grid;
@@ -16,25 +15,22 @@ const StyledFeed = styled.div`
   }
 `;
 
-const Feed = ({ posts }) => {
-  const [detail, setDetail] = React.useState(false);
-  return (
-    <StyledFeed>
-      { posts.map((post) => (
-        <div key={post.node.id}>
-          <Thumbnail post={post.node} onSelect={(post) => setDetail(post)} />
-        </div>
-      ))}
-      <Dialog isOpen={!!detail} onClose={() => setDetail(false)}>
-        <Card>
-          <Detail post={detail} />
-        </Card>
-      </Dialog>
-    </StyledFeed>
-  );
+const Feed = ({ posts, onSelect }) => (
+  <StyledFeed>
+    { posts.map((post) => (
+      <div key={post.node.id}>
+        <Thumbnail post={post.node} onSelect={onSelect} />
+      </div>
+    ))}
+  </StyledFeed>
+);
+
+Feed.defaultProps = {
+  onSelect: () => {},
 };
 
 Feed.propTypes = {
+  onSelect: PropTypes.func,
   posts: PropTypes.arrayOf(PropTypes.shape({
     node: PropTypes.shape({
       id: PropTypes.string,
@@ -42,4 +38,4 @@ Feed.propTypes = {
   })).isRequired,
 };
 
-export default withSpacing(Feed);
+export default Feed;

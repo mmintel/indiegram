@@ -12,3 +12,4 @@ export { default as Layout } from './src/components/layout';
 export { default as Dialog } from './src/components/dialog';
 export { default as Detail } from './src/components/detail';
 export { default as Card } from './src/components/card';
+export { default as Comment } from './src/components/comment';

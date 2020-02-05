@@ -2,24 +2,47 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import {
-  Container, Profile, Feed, Layout,
+  Container, Profile, Feed, Layout, Dialog, Detail, Card,
 } from '@mmintel/indiegram';
 
-const Home = ({ data }) => (
-  <Layout>
-    <Container>
-      <Profile
-        avatar={`${data.feed.avatar.url}?w=256&h=256&fit=face`}
-        username={data.feed.username}
-        name={data.feed.name}
-        description={data.feed.description}
-        website={data.feed.website}
-        postsCount={data.posts.totalCount}
-      />
-      <Feed posts={data.posts.edges} />
-    </Container>
-  </Layout>
-);
+const Home = ({ data }) => {
+  const [detail, setDetail] = React.useState(null);
+
+  React.useEffect(() => {
+    if (detail && window.location.pathname === '/') {
+      window.history.replaceState(null, null, `post/${detail.id}`);
+    } else if (detail === false && window.location.pathname !== '/') {
+      window.history.replaceState(null, null, '/');
+    }
+  }, [detail]);
+
+  const user = {
+    avatar: data.feed.avatar.url,
+    username: data.feed.username,
+    name: data.feed.name,
+    description: data.feed.description,
+    website: data.feed.website,
+  };
+
+  return (
+    <Layout>
+      <Container>
+        <Profile
+          user={user}
+          postsCount={data.posts.totalCount}
+        />
+        <Feed posts={data.posts.edges} onSelect={(post) => setDetail(post)} />
+        <Dialog isOpen={!!detail} onClose={() => setDetail(false)}>
+          { detail && (
+            <Card>
+              <Detail post={detail} user={user} />
+            </Card>
+          )}
+        </Dialog>
+      </Container>
+    </Layout>
+  );
+};
 
 Home.propTypes = {
   data: PropTypes.shape({
@@ -54,6 +77,7 @@ export const query = graphql`
         node {
           id: originalId
           caption
+          location
           media {
             url
           }

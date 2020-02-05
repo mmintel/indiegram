@@ -22,7 +22,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   result.data.allDatoCmsPost.edges.forEach((edge) => {
     const { node } = edge;
     createPage({
-      path: `/${node.id}`,
+      path: `/post/${node.id}`,
       component: path.resolve(__dirname, './src/templates/post.js'),
       context: {
         id: node.id,

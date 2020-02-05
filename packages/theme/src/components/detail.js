@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Img, Display } from '@mmintel/indiegram';
+import { Img, Display, Comment } from '@mmintel/indiegram';
 
 const StyledDetail = styled.div`
   display: flex;
@@ -17,19 +17,50 @@ const DetailInfo = styled.div`
   flex: 1;
 `;
 
-const Detail = ({ post }) => (
+const DetailUser = styled.div`
+  border-bottom: 1px solid #EFEFEF;
+`;
+
+const Detail = ({ user, post }) => (
   <StyledDetail>
     {post.media && (
-      <DetailImage>
-        <Img src={`${post.media[0].url}?w=1350&h=1080&fit=crop`} alt="" />
-      </DetailImage>
+    <DetailImage>
+      <Img src={`${post.media[0].url}?w=1080&min-h=566&max-h=1350&fit=crop`} alt="" />
+    </DetailImage>
     )}
     <DetailInfo>
-      <Display as="p" ml={0} mr={0} mt={0} mb={0} size={-2}>
-        {post.caption}
-      </Display>
+      {user && (
+      <DetailUser>
+        <Comment user={user}>
+          { post.location && (
+            <Display size={-3}>{post.location}</Display>
+          )}
+        </Comment>
+      </DetailUser>
+      )}
+      { post.caption && (
+      <Comment user={user}>
+        <Display as="p" size={-3}>
+          {post.caption}
+        </Display>
+      </Comment>
+      )}
     </DetailInfo>
   </StyledDetail>
 );
+
+Detail.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string,
+    avatar: PropTypes.string,
+  }).isRequired,
+  post: PropTypes.shape({
+    caption: PropTypes.string,
+    location: PropTypes.string,
+    media: PropTypes.arrayOf(PropTypes.shape({
+      url: PropTypes.string,
+    })),
+  }).isRequired,
+};
 
 export default Detail;
