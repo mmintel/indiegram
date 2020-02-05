@@ -1,0 +1,56 @@
+{
+  "name": "root",
+  "private": true,
+  "description": "",
+  "main": "index.js",
+  "workspaces": [
+    "example",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "lerna run dev --scope example",
+    "build": "lerna run build --scope example",
+    "bootstrap": "lerna bootstrap",
+    "release": "lerna publish --conventional-commits",
+    "postinstall": "lerna bootstrap",
+    "lint": "eslint \"./packages/*/src/**/*.{js,jsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.3",
+    "babel-jest": "^24.9.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-emotion": "^10.0.23",
+    "babel-plugin-react-remove-properties": "^0.3.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^8.3.4",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-react-app": "^5.0.2",
+    "eslint-import-resolver-lerna": "^1.1.0",
+    "eslint-plugin-flowtype": "^4.6.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jest": "23.6.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "husky": "^4.0.9",
+    "lerna": "^3.20.2",
+    "lint-staged": "^10.0.3"
+  },
+  "lint-staged": {
+    "./packages/*/src/**/*.{js,jsx}": [
+      "eslint"
+    ]
+  }
+}
