@@ -15,7 +15,7 @@
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@emotion/styled": "^10.0.27",
-    "@mdi/js": "^4.5.95",
+    "@mdi/js": "^4.9.95",
     "@mdi/react": "^1.2.1",
     "@svgr/webpack": "^5.0.1",
     "emotion-theming": "^10.0.19",
@@ -33,6 +33,7 @@
     "react-helmet": "^5.2.1",
     "react-hook-inview": "^4.1.2",
     "react-resize-aware": "^3.0.0-beta.7",
+    "react-spring": "^8.0.27",
     "react-use-measure": "^2.0.0",
     "sharp": "^0.23.3"
   },

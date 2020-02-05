@@ -9,3 +9,6 @@ export { default as Display } from './src/components/display';
 export { default as TextLink } from './src/components/text-link';
 export { default as Stats } from './src/components/stats';
 export { default as Layout } from './src/components/layout';
+export { default as Dialog } from './src/components/dialog';
+export { default as Detail } from './src/components/detail';
+export { default as Card } from './src/components/card';

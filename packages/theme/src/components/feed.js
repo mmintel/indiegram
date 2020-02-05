@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Thumbnail } from '@mmintel/indiegram';
+import {
+  Thumbnail, Detail, Dialog, Card,
+} from '@mmintel/indiegram';
 import styled from '@emotion/styled';
 import withSpacing from '../hocs/with-spacing';
 
@@ -14,15 +16,23 @@ const StyledFeed = styled.div`
   }
 `;
 
-const Feed = ({ posts }) => (
-  <StyledFeed>
-    { posts.map((post) => (
-      <div key={post.node.id}>
-        <Thumbnail post={post.node} />
-      </div>
-    ))}
-  </StyledFeed>
-);
+const Feed = ({ posts }) => {
+  const [detail, setDetail] = React.useState(false);
+  return (
+    <StyledFeed>
+      { posts.map((post) => (
+        <div key={post.node.id}>
+          <Thumbnail post={post.node} onSelect={(post) => setDetail(post)} />
+        </div>
+      ))}
+      <Dialog isOpen={!!detail} onClose={() => setDetail(false)}>
+        <Card>
+          <Detail post={detail} />
+        </Card>
+      </Dialog>
+    </StyledFeed>
+  );
+};
 
 Feed.propTypes = {
   posts: PropTypes.arrayOf(PropTypes.shape({

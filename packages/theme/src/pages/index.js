@@ -2,13 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import {
-  Bootstrap, Container, Profile, Feed, Layout,
+  Container, Profile, Feed, Layout,
 } from '@mmintel/indiegram';
 
 const Home = ({ data }) => (
   <Layout>
     <Container>
-      <Bootstrap />
       <Profile
         avatar={`${data.feed.avatar.url}?w=256&h=256&fit=face`}
         username={data.feed.username}
@@ -33,12 +32,7 @@ Home.propTypes = {
     }),
     posts: PropTypes.shape({
       totalCount: PropTypes.number,
-      edges: PropTypes.arrayOf(PropTypes.shape({
-        node: PropTypes.shape({
-          id: PropTypes.string,
-          caption: PropTypes.string,
-        }),
-      })),
+      edges: PropTypes.array,
     }),
   }).isRequired,
 };
@@ -58,7 +52,7 @@ export const query = graphql`
       totalCount
       edges {
         node {
-          id
+          id: originalId
           caption
           media {
             url

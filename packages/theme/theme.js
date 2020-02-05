@@ -20,5 +20,6 @@ export default {
     background: '#fafafa',
     link: '#003569',
     linkHover: '#23527c',
+    overlay: 'rgba(0,0,0,.5)',
   },
 };
