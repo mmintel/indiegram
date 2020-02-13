@@ -4,11 +4,10 @@
   "packages": [
     "packages/*"
   ],
-  "version": "0.5.1",
+  "version": "0.0.0",
   "stream": true,
   "command": {
     "publish": {
-      "registry": "https://registry.baretheme.com",
       "conventionalCommits": true,
       "message": "chore(release): publish [skip-ci]"
     }
