@@ -3,9 +3,9 @@ require('dotenv').config();
 module.exports = {
   plugins: [
     {
-      resolve: '@mmintel/indiegram',
+      resolve: '@mmintel/gatsby-theme-indiegram',
       options: {
-        apiKey: process.env.DATOCMS_API_KEY,
+        apiKey: process.env.DATO_API_TOKEN,
       },
     },
   ],

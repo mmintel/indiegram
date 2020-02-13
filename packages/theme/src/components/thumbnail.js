@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { mdiCheckboxMultipleBlankOutline } from '@mdi/js';
 import Icon from '@mdi/react';
-import { Img } from '@mmintel/indiegram';
+import { Img } from '@mmintel/gatsby-theme-indiegram';
 import styled from '@emotion/styled';
 
 const StyledThumbnail = styled.div`

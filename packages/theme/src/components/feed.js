@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Thumbnail,
-} from '@mmintel/indiegram';
+} from '@mmintel/gatsby-theme-indiegram';
 import styled from '@emotion/styled';
 
 const StyledFeed = styled.div`

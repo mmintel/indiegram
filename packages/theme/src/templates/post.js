@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import {
   Card, Detail, Container, Layout,
-} from '@mmintel/indiegram';
+} from '@mmintel/gatsby-theme-indiegram';
 
 const Post = ({ data }) => {
   const post = data.posts.edges[0].node;

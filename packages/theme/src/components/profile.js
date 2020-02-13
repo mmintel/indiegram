@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import {
   Avatar, Img, Display, TextLink, Stats,
-} from '@mmintel/indiegram';
+} from '@mmintel/gatsby-theme-indiegram';
 
 const StyledProfile = styled.div`
   display: flex;

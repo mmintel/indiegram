@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import {
   Slider, Img, Display, Comment,
-} from '@mmintel/indiegram';
+} from '@mmintel/gatsby-theme-indiegram';
 
 
 const StyledDetail = styled.div`

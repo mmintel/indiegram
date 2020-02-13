@@ -8,7 +8,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import {
   Img,
-} from '@mmintel/indiegram';
+} from '@mmintel/gatsby-theme-indiegram';
 
 const StyledSlider = styled.div`
   position: relative;

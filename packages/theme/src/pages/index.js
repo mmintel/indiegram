@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { graphql } from 'gatsby';
 import {
   Container, Profile, Feed, Layout, Dialog, Detail, Card,
-} from '@mmintel/indiegram';
+} from '@mmintel/gatsby-theme-indiegram';
 
 const Home = ({ data }) => {
   const [detail, setDetail] = React.useState(null);

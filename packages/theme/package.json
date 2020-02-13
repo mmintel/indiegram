@@ -1,5 +1,5 @@
 {
-  "name": "@mmintel/indiegram",
+  "name": "@mmintel/gatsby-theme-indiegram",
   "version": "0.0.0",
   "main": "index.js",
   "description": "Indiegram theme for Gatsby",

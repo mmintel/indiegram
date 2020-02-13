@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
-import { Bootstrap, Display, TextLink } from '@mmintel/indiegram';
+import { Bootstrap, Display, TextLink } from '@mmintel/gatsby-theme-indiegram';
 import { Helmet } from 'react-helmet';
 
 const StyledLayout = styled.div`

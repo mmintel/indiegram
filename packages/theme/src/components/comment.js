@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import { Link } from 'gatsby';
-import { Img, Avatar, Display } from '@mmintel/indiegram';
+import { Img, Avatar, Display } from '@mmintel/gatsby-theme-indiegram';
 
 const StyledComment = styled.div`
   display: flex;

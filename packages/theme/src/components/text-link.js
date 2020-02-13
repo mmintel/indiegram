@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Display } from '@mmintel/indiegram';
+import { Display } from '@mmintel/gatsby-theme-indiegram';
 
 export default styled(Display)`
   cursor: pointer;

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import styled from '@emotion/styled';
 import {
   Display,
-} from '@mmintel/indiegram';
+} from '@mmintel/gatsby-theme-indiegram';
 import withSpacing from '../hocs/with-spacing';
 
 const StyledStats = styled.ul`
