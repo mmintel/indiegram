@@ -1,7 +1,7 @@
 {
   "name": "example",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "author": "Marc <marc@mintel.me> (@mmintel)",
   "license": "MIT",
@@ -13,7 +13,7 @@
     "clean": "gatsby clean"
   },
   "dependencies": {
-    "@mmintel/gatsby-theme-indiegram": "^0.0.0",
+    "@mmintel/gatsby-theme-indiegram": "^0.0.1",
     "dotenv": "^8.2.0",
     "gatsby": "2.18.22",
     "react": "^16.11.0",
