@@ -8,37 +8,35 @@ import {
 const Home = ({ data }) => {
   const [detail, setDetail] = React.useState(null);
 
-  React.useEffect(() => {
-    if (detail && window.location.pathname === '/') {
-      window.history.replaceState(null, null, `post/${detail.id}`);
-    } else if (detail === false && window.location.pathname !== '/') {
+  const gotoPost = (post) => {
+    setDetail(post);
+    window.history.replaceState(null, null, `post/${post.id}`);
+  };
+
+  const goBack = () => {
+    setDetail(false);
+    if (window.location.pathname !== '/') {
       window.history.replaceState(null, null, '/');
     }
-  }, [detail]);
-
-  const user = {
-    avatar: data.feed.avatar.url,
-    username: data.feed.username,
-    name: data.feed.name,
-    description: data.feed.description,
-    website: data.feed.website,
   };
 
   return (
-    <Layout>
+    <Layout user={data.user}>
       <Container>
         <Profile
-          user={user}
+          user={data.user}
           postsCount={data.posts.totalCount}
         />
-        <Feed posts={data.posts.edges} onSelect={(post) => setDetail(post)} />
-        <Dialog isOpen={!!detail} onClose={() => setDetail(false)}>
-          { detail && (
-            <Card>
-              <Detail post={detail} user={user} />
-            </Card>
-          )}
-        </Dialog>
+        <Feed posts={data.posts.edges} onSelect={gotoPost} />
+        {data.posts.edges.map((post) => (
+          <Dialog key={post.node.id} isOpen={detail && detail.id === post.node.id} onClose={goBack}>
+            <Container small>
+              <Card>
+                <Detail post={post.node} user={data.user} />
+              </Card>
+            </Container>
+          </Dialog>
+        ))}
       </Container>
     </Layout>
   );
@@ -46,7 +44,7 @@ const Home = ({ data }) => {
 
 Home.propTypes = {
   data: PropTypes.shape({
-    feed: PropTypes.shape({
+    user: PropTypes.shape({
       username: PropTypes.string,
       name: PropTypes.string,
       website: PropTypes.string,
@@ -62,7 +60,7 @@ Home.propTypes = {
 
 export const query = graphql`
   query IndexQuery {
-    feed: datoCmsFeed {
+    user: datoCmsFeed {
       username
       name
       website
@@ -79,6 +77,7 @@ export const query = graphql`
           caption
           location
           media {
+            id: originalId
             url
           }
         }

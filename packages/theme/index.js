@@ -13,3 +13,4 @@ export { default as Dialog } from './src/components/dialog';
 export { default as Detail } from './src/components/detail';
 export { default as Card } from './src/components/card';
 export { default as Comment } from './src/components/comment';
+export { default as Slider } from './src/components/slider';

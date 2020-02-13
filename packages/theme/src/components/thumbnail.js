@@ -7,6 +7,7 @@ import styled from '@emotion/styled';
 
 const StyledThumbnail = styled.div`
   position: relative;
+  cursor: pointer;
 `;
 
 const MultipleIcon = styled.div`

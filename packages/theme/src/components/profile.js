@@ -28,13 +28,15 @@ const Profile = ({
   const {
     website, avatar, username, name, description,
   } = user;
+
   const shortWebsite = website && website.replace(/(^\w+:|^)\/\//, '');
+
   return (
     <StyledProfile>
       { avatar && (
         <ProfileAvatar>
           <Avatar>
-            <Img src={`${avatar}?w=256&h=256&fit=face`} alt="" />
+            <Img src={`${avatar.url}?w=256&h=256&fit=face`} alt="" />
           </Avatar>
         </ProfileAvatar>
       )}
@@ -69,7 +71,9 @@ Profile.defaultProps = {
 
 Profile.propTypes = {
   user: PropTypes.shape({
-    avatar: PropTypes.string,
+    avatar: PropTypes.shape({
+      url: PropTypes.string,
+    }),
     username: PropTypes.string,
     name: PropTypes.string,
     website: PropTypes.string,
