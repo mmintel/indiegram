@@ -36,7 +36,7 @@ const Profile = ({
       { avatar && (
         <ProfileAvatar>
           <Avatar>
-            <Img src={`${avatar.url}?w=256&h=256&fit=face`} alt="" />
+            <Img src={`${avatar.url}?w=256&h=256`} alt="" />
           </Avatar>
         </ProfileAvatar>
       )}
